@@ -8,7 +8,7 @@ module.exports = {
         {
           title:'David Bach: Factor Latter',
           author:'David Bach',
-          image: '/uploads/image 1.png',
+          image: '/public/uploads/image 1.jpg',
           published: new Date(),
           price: 90,
           stock: 100,
@@ -20,7 +20,7 @@ module.exports = {
         {
           title:'"Selena" dan "Nebula"',
           author:'Tere Liye',
-          image: '/uploads/image 2.png',
+          image: '/public/uploads/image 2.jpg',
           published: new Date(),
           price: 90,
           stock: 100,
@@ -32,7 +32,7 @@ module.exports = {
         {
           title:'Pelukis Bisu (The Silent patient)',
           author:'Alex Michaelides',
-          image: '/uploads/image 3.png',
+          image: '/public/uploads/image 3.jpg',
           published: new Date(),
           price: 90,
           stock: 100,
@@ -44,7 +44,7 @@ module.exports = {
         {
           title:'Kecamuk Darah (Troubled Blood)',
           author:'Robert Galbraith',
-          image: '/uploads/image 4.png',
+          image: '/public/uploads/image 4.jpg',
           published: new Date(),
           price: 90,
           stock: 100,
@@ -56,7 +56,7 @@ module.exports = {
         {
           title:'Kitab Kawin (Edisi Kitab Baru)',
           author:'Laksmi Pamuntjak',
-          image: '/uploads/image 5.png',
+          image: '/public/uploads/image 5.jpg',
           published: new Date(),
           price: 90,
           stock: 100,
@@ -68,7 +68,7 @@ module.exports = {
         {
           title:'Salvation of a saint',
           author:'Keigo Higashino',
-          image: '/uploads/image 6.png',
+          image: '/public/uploads/image 6.jpg',
           published: new Date(),
           price: 90,
           stock: 100,
