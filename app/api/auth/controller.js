@@ -1,5 +1,5 @@
 const {User} = require('../../db/models');
-const bycrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
       const checkUser = await User.findOne({where: {email: email} })
 
       if(checkUser) {
-        const checkPassword = bycrypt.compareSync(password, checkUser.password);
+        const checkPassword = bcrypt.compareSync(password, checkUser.password);
 
         if(checkPassword){
           const token = jwt.sign({
@@ -29,7 +29,36 @@ module.exports = {
         res.status(403).json({message: 'Invalid email'});
       }
     } catch (err) {
-      console.log(err);
+      next(err);
+    }
+  },
+  signup: async(req,res, next)=> {
+    try {
+      const {email, name, password, confirmPassword}= req.body;
+      if(password !== confirmPassword) {
+        res
+          .status(403)
+          .json({message: 'password and confirm password dont match'});
+      }
+
+      const checkEmail = await User.findOne({where: { email: email }});
+      if(checkEmail) {
+        return res.status(403).json({message: 'Email registered'});
+      }
+
+      const user = await User.create({
+        name, 
+        email, 
+        password: bcrypt.hashSync(password, 10), 
+        role:'admin' 
+      });
+      console.log(user);
+      delete user.dataValues.password;
+      res.status(200).json({
+        message: 'Success Signup',
+        data: user,
+      })
+    } catch (err) {
       next(err);
     }
   }
