@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      /** for line 18
+       * as relation table, for calling data from category table
+       * and visible to get Book,
+       */
+      Book.belongsTo(models.Category, {
+        foreignKey: "category",
+      });
     }
   }
   Book.init({
